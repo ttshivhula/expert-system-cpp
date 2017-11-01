@@ -125,6 +125,13 @@ void            solver(char **rules, char *facts, char *queries, int g_view)
         free(facts);
         times++;
         if (!g_view)
+        {
+            free(queries);
+            times = 0;
+            while (rules[times])
+                free(rules[times++]);
+            free(rules);
             break ;
+        }
     }
 }
